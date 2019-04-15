@@ -73,13 +73,13 @@ Inside of Dummy we have:
         });
     }
 ```
-So, if this app is a direct proxy (it is) then input messages (timing messages) will be broadcast to all connected app (Angular clients).
+So, if this app is a direct proxy (it is) then input messages (timing messages) will be broadcast to all connected apps (Angular clients).
 
 Using the indirect way, it would send timing messages via tcp to the input socket of the backend.
 The backend would itself broadcast messages via the tcp output socket.
 You would receive these and then broadcast the netto content to all connected Angular apps.
 In other words, the timing message would travel via the outer loop.
-You would also receive what traditional timing clients may be sending to the desktop result server, and what is beeing manually entered onto the UI of the desktop application.
+You would also receive what traditional timing clients may be sending to the desktop result server, and what is beeing manually entered into the UI of the desktop application.
 
 This application can connect spa clients directly, without a backend application.
 
@@ -87,9 +87,8 @@ Note that the hardcoded **race** and **it** params in the *json* above will not 
 
 ### Angular Clients
 - FR03A1 or similar.
-- FR03A1 can be configured via url query param, see link in `client/index.html`.
-- The Angular client will be input or output.
-- It can be both.
+- FR03A1 can be configured via url query param, see links in `client/index.html`.
+- The Angular client will be input or output, or both.
 
 You should check that the Angular client:
 - Evaluates the query param. (Calls initParams() in ngOnInit().)
@@ -110,6 +109,6 @@ When the client downloads current event data it will retrieve the params as part
 
 ### Data
 Since this is a thin server, someone will need to upload the initial event data into the dummy instance.
-This is probably a task for admin, but we do not do authentication and authorizarion, not yet.
+This is probably a task for admin, but we do not do authentication/authorization, not yet.
 
 We do not have a database either.
