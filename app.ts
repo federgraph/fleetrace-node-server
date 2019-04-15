@@ -1,5 +1,5 @@
- import express = require("express");
- import path = require('path');
+﻿import express = require("express");
+import path = require('path');
 
 import { hostname } from 'os';
 import { Server as HttpServer } from 'http';
@@ -41,7 +41,9 @@ app.use( bodyParser.json() );       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 }))
-app.use(bodyParser.text({ type: 'text/plain' }))
+app.use(bodyParser.text({
+  type: 'text/plain'
+}))
 
 app.set('json spaces', 2);
 
