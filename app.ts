@@ -8,6 +8,9 @@ import { Server as WsServer } from 'ws';
 import { Dummy } from './dummy';
 import { ApiRetValue } from './data-model';
 
+//this is fr-node-server-d
+//alias fr-direct-proxy
+
 const ahost = hostname();
 const aport = 3000;
 
@@ -275,7 +278,7 @@ app.get('/api/send-msg', (req, res) => {
 })
 
 /**
- * start the http server
+ * Start the http server.
  */
 const httpServer: HttpServer = app.listen(aport, ahost, () => {
   const ai = httpServer.address();
@@ -285,7 +288,9 @@ const httpServer: HttpServer = app.listen(aport, ahost, () => {
 })
 
 /**
- * start the web socket server - on same port as HTTP server.
+ * Start the web socket server - on same port as HTTP server.
+ * 
+ * (Only some clients will use it.)
  */
 const wsServer: WsServer = new WsServer({ server: httpServer });
 wsServer.on('connection', ws => {
@@ -299,7 +304,9 @@ wsServer.on('connection', ws => {
 })
 
 /**
- * getTime() helper function will generate a time string with 3 digits after the decimal point.
+ * Return a time string with 3 digits after the decimal point.
+ * 
+ * (This is the helper function for /api/widget/time, see above.)
  */
 function getTime() {
   var d = new Date();
