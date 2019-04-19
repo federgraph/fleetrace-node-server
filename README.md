@@ -79,7 +79,7 @@ Using the indirect way, it would send timing messages via tcp to the input socke
 The backend would itself broadcast messages via the tcp output socket.
 You would receive these and then broadcast the netto content to all connected Angular apps.
 In other words, the timing message would travel via the outer loop.
-You would also receive what traditional timing clients may be sending to the desktop result server, and what is beeing manually entered into the UI of the desktop application.
+You would also receive what traditional timing clients may be sending to the desktop result server, and what is being manually entered into the UI of the desktop application.
 
 This application can connect spa clients directly, without a backend application.
 
